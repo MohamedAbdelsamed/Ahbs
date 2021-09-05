@@ -1,0 +1,62 @@
+<div class="container-fluid" >
+    <h6 style="margin: 0 40px 15px;">{{'Product'| translate}}</h6>
+    <div class="product-wrapper">
+        <span class="d-block"><i class="far fa-copy fa-lg"></i>{{'BasicInfo' | translate}}</span>
+        <hr>
+    <form #contactForm="ngForm" (ngSubmit)="filter()">
+        <div class="row form-group">
+            <div class="col-md-4 col-sm-6 col-12">
+                <label>{{'warhouse' | translate}} <span style="color: red;">*</span></label>
+                <ng-select name="Wharehous" [items]="Warehouses" [bindLabel]="'name'" [bindValue]="'id'"
+                    placeholder="{{'warhouse' | translate}}" [(ngModel)]="activeWarehousId" (change)="setTypes()" (clear)="onClear()" required>
+                </ng-select>
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+                <label>{{'type' | translate}} <span style="color: red;">*</span></label>
+                <ng-select name="type" [disabled]="!activeWarehousId" [items]="types" [bindLabel]="'name'" [bindValue]="'id'"
+                    placeholder="{{'type' | translate}}" [(ngModel)]="typeId" required>
+                </ng-select>
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+                <div class="custom-control form-check">
+                    <input type="checkbox" lass="form-check-input" [(ngModel)]="saveUsername"
+                        [ngModelOptions]="{standalone: true}" />
+                    <label>{{'show zero Balance' | translate}}</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <h6>{{'product classifications' | translate}}</h6>
+            </div>
+            <div class="col-md-2 col-sm-3 col-12">
+                <div class="custom-control custom-radio">
+                    <input id="allProduct" type="radio" class="custom-control-input" value="allProduct"
+                        name="Product" [(ngModel)]="radioChoise" >
+                    <label class="custom-control-label" for="allProduct">{{'allProduct' | translate}}</label>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3 col-12">
+                <div class="custom-control custom-radio radio2">
+                    <input id="specificProduct" type="radio" class="custom-control-input" value="specificProduct"
+                        name="Product" [(ngModel)]="radioChoise" >
+                    <label class="custom-control-label" for="specificProduct">{{'specificProduct' | translate}}</label>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-12 specificProduct" *ngIf="radioChoise==='specificProduct'">
+                <label>product</label>
+                <ng-select name="product" (change)="log()" [items]="filteredProducts" [multiple]="true" [bindLabel]="'name'" 
+                
+                    placeholder="products" [(ngModel)]="specificProducts" required>
+                </ng-select>
+            </div>
+
+            <div class="col-12 text-right" style="margin-top: 25px;">
+                <button  [disabled]="!activeWarehousId || !typeId || !radioChoise" type="submit">{{'search' | translate}}</button>
+            </div>
+        </div>
+    </form>
+    <app-product-grid [name]="'product'" [products]="radioChoise==='specificProduct'? specificProducts : filteredProducts"></app-product-grid>
+    </div>
+   
+</div>
+
+

@@ -1,0 +1,22 @@
+.employee-wrapper{
+    background-color: #fff;
+    margin: 15px 40px;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+:host ::ng-deep .input-group-append{
+    position: relative;
+}
+:host ::ng-deep .input-group-append::after{
+    position: absolute;
+    content: "\f784";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900; 
+    top: 7px;
+    left: 7px;
+    color: #4c4cef;
+}
+:host ::ng-deep .btn-outline-secondary:hover {
+    background-color: transparent;
+}

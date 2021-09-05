@@ -1,0 +1,49 @@
+.rtl{
+    direction: rtl;
+        .breadcrumb{
+            span{
+                border-left: 1px solid rgb(177, 165, 165) !important;
+                padding-left: 15px !important;
+                margin-left: 15px !important;
+                border-right: 0 !important;
+                padding-right: 0 !important;
+                margin-right: 0 !important;
+            }
+    }
+    
+     .ng-select .ng-select-container{
+        border-left: 0 !important;
+        border-right: 1px solid #ccc !important;
+   
+    }
+    .select{
+        border-right: 0!important;
+        border-left: 0!important;
+    }
+    .form-group .btn{
+        border-right: 3px solid #3f79b3 !important;
+        margin-right: -12px!important;
+        border-left: 0!important;
+        margin-left: 0!important;
+    }
+    .product-wrapper,h6{
+        text-align: right!important;
+    }
+    input[type=checkbox]{
+        margin-left: 15px!important;
+    }
+    .text-right {
+        text-align: left !important;
+    }
+    .employee-wrapper{
+        text-align: right;
+    }
+    .form-group .calendar{
+        border: 1px solid;
+        border-right: 0!important;
+        margin-right: 0!important;
+        border-left: 1px solid!important;
+        margin-left: 1px solid!important;
+        border-radius: 0;
+    }
+}

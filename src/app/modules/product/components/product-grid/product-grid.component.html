@@ -1,0 +1,110 @@
+<div class="container-fluid">
+    <h6 *ngIf="name != 'employee'">{{'ProductDetails'| translate}}</h6>
+    <h6 *ngIf="name === 'employee'">{{'employeeDetails'| translate}}</h6>
+    <hr>
+    <div class="product-wrapper">
+        <table class="table table-bordered">
+            <thead>
+              <tr *ngIf="name != 'employee'">
+                <th scope="col">{{'product' | translate}}
+                </th>
+                <th scope="col">{{'onhand' | translate}}
+                </th>
+                <th scope="col">{{'type' | translate}}
+                </th>
+              </tr>
+              <tr *ngIf="name === 'employee'">
+                <th scope="col">{{'empName' | translate}}
+                </th>
+                <th scope="col">{{'empCode' | translate}}
+                </th>
+                <th scope="col">{{'Date' | translate}}
+                </th>
+                
+              </tr>
+              <tr class="search-table" *ngIf="name != 'employee'">
+                <th scope="col" >
+                    <input type="text" placeholder="{{'search' | translate}}">
+                </th>
+                <th scope="col">
+                    <input type="text" placeholder="{{'search' | translate}}">
+                </th>
+                <th scope="col">
+                    <input type="text" placeholder="{{'search' | translate}}">
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngIf="name != 'employee'">
+                <tr *ngFor="let product of products">
+                  <th scope="row">1</th>
+                  <td>{{product.name}}</td>
+                  <td>{{product.empCode}}</td>
+                  <td>{{product.typeName}}</td>
+                </tr>
+              </ng-container>
+              <ng-container *ngIf="name === 'employee'">
+                <tr *ngFor="let emp of employee">
+                  <!-- <th scope="row">1</th> -->
+                  <td>{{emp.name}}</td>
+                  <td>{{emp.empCode}}</td>
+                  <!-- <td>{{emp.date | date: 'dd/MM/yyyy'}}</td> -->
+                  <td>{{(emp.date | customDate) | date: 'dd/MM/yyyy'}}</td>
+                </tr>
+              </ng-container>
+                         
+            </tbody>
+             
+          </table>
+          <div class="noData" *ngIf="products.length == 0 || employee.length == 0">
+            <img src="../../../../../assets/Images/noDataFoundGreen.svg" class="img-fluid" >
+            <br><br>
+            <p class="text-center">{{'noData' | translate}}</p>
+          </div> 
+    </div>
+</div>
+
+<!-- <div class="container-fluid" *ngIf="employee?.length > 0 && products.length == 0">
+  <h6 >{{'employeeDetails'| translate}}</h6>
+  <hr>
+  <div class="product-wrapper">
+      <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">{{'product' | translate}}
+              </th>
+              <th scope="col">{{'onhand' | translate}}
+              </th>
+              <th scope="col">{{'type' | translate}}
+              </th>
+            </tr>
+            <tr class="search-table">
+              <th scope="col" >
+                  <input type="text" placeholder="{{'search' | translate}}">
+              </th>
+              <th scope="col">
+                  <input type="text" placeholder="{{'search' | translate}}">
+              </th>
+              <th scope="col">
+                  <input type="text" placeholder="{{'search' | translate}}">
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products">
+              <th scope="row">1</th>
+              <td>{{product.name}}</td>
+              <td>{{product.typeName}}</td>
+              <td>{{product.typeName}}</td>
+            </tr>
+                       
+          </tbody>
+           
+        </table>
+        <div class="noData" *ngIf="products.length == 0">
+          <img src="../../../../../assets/Images/noDataFoundGreen.svg" class="img-fluid" >
+          <br><br>
+          <p class="text-center">{{'noData' | translate}}</p>
+        </div> 
+  </div>
+</div> -->

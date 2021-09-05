@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('./assets/fontawesome-free-5.15.4-web/fontawesome-free-5.15.4-web/css/all.min.css');
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "rtl";
+
+.ltr{
+    direction: ltr;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+body{
+    background-color: #eff7ff;
+}

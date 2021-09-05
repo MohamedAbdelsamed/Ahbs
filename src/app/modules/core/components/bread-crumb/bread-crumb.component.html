@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <span (click)="toggleMenu()" style="cursor: pointer;"><i class="fas fa-braille"></i></span>
+          <li class="breadcrumb-item"><a><i class="fas fa-home fa-lg"></i></a></li>
+          <li class="breadcrumb-item"><a href="#">{{'Home' | translate}}</a></li>
+          <li *ngFor="let bc of breadCrumb" class="breadcrumb-item active" [routerLink]="bc?.route" aria-current="page">{{bc?.name}}</li>
+        </ol>
+      </nav>
+
+      <div class="menu d-flex" *ngIf="hideMemu">
+        <div class="employee" routerLink="/products">
+          <img src="../../../../../assets/Images/admin.svg" height="50" width="50" class="img-fluid">
+          <h6>{{'Product' | translate}}</h6>
+        </div>
+          <div class="employee" routerLink="/employees">
+            <img src="../../../../../assets/Images/admin.svg" height="50" width="50" class="img-fluid">
+            <h6>{{'Employee' | translate}}</h6>
+          </div>
+      </div>
+</div>
